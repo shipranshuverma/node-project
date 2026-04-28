@@ -23,4 +23,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: shiprasnhuverma/my-node-app:latest
+          tags: shipranshuverma/my-node-app:latest
