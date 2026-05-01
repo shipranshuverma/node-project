@@ -20,7 +20,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and Push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v6
         with:
           push: true
           tags: shipranshuverma/my-node-app:latest
@@ -30,7 +30,7 @@ jobs:
         with:
          image-ref: docker.io/shipranshuverma/my-node-app:latest
          format: table
-         exit-code: 0
+         exit-code: 1
          severity: CRITICAL,HIGH
 
       - name: Deploy to EC2
