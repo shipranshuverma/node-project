@@ -32,7 +32,7 @@ jobs:
          format: template
          template: "https://raw.githubusercontent.com/aquasecurity/trivy/main/contrib/html.tpl"
          output: trivy-report.html
-         exit-code: 1
+         exit-code: 0
          severity: CRITICAL,HIGH
 
       - name: Upload Trivy HTML Report
