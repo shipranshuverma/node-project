@@ -26,7 +26,7 @@ jobs:
           tags: shipranshuverma/my-node-app:latest
 
       - name: Scan Docker image with Trivy
-        uses: aquasecurity/trivy-action@0.20.0
+        uses: aquasecurity/trivy-action@master
         with:
          image-ref: ${{ secrets.DOCKER_USERNAME }}/node-app:latest
          format: table
