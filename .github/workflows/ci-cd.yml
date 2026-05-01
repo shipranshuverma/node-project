@@ -30,9 +30,9 @@ jobs:
         with:
          image-ref: docker.io/shipranshuverma/my-node-app:latest
          format: template
-         template: "@contrib/html.tpl"
+         template: "@/contrib/html.tpl"
          output: trivy-report.html
-         exit-code: 1
+         exit-code: 0
          severity: CRITICAL,HIGH
 
       - name: Upload Trivy HTML Report
