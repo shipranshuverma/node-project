@@ -7,8 +7,7 @@ app.use(express.json());
 app.use(cors());
 
 
-// 👇 ADD DB CONNECTION HERE (after middleware, before routes)
-const mysql = require("mysql2");
+// database connectivity
 
 function connectWithRetry() {
   const db = mysql.createConnection({
@@ -32,13 +31,7 @@ function connectWithRetry() {
 
 const db = connectWithRetry();
 
-db.connect((err) => {
-  if (err) {
-    console.log("DB connection failed:", err);
-  } else {
-    console.log("Connected to MySQL");
-  }
-});
+
 
 app.get("/users", (req, res) => {
   db.query("SELECT * FROM tasks", (err, result) => {
