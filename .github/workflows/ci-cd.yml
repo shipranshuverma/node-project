@@ -25,6 +25,14 @@ jobs:
           push: true
           tags: shipranshuverma/my-node-app:latest
 
+      - name: Scan Docker image with Trivy
+        uses: aquasecurity/trivy-action@0.20.0
+        with:
+         image-ref: ${{ secrets.DOCKER_USERNAME }}/node-app:latest
+         format: table
+         exit-code: 0
+         severity: CRITICAL,HIGH
+
       - name: Deploy to EC2
         uses: appleboy/ssh-action@v1
         with:
