@@ -30,7 +30,7 @@ jobs:
         with:
          image-ref: docker.io/shipranshuverma/my-node-app:latest
          format: template
-         template: "@.github/trivy/html.tpl"
+         template: "@.github/trivy/html.tpl"S
          output: trivy-report.html
          exit-code: 0
          severity: CRITICAL,HIGH
@@ -49,7 +49,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-            docker pull shipranshuverma/my-node-app:latest
-            docker stop myapp || true
-            docker rm myapp || true
-            docker run -d --name myapp -p 3000:3000 shipranshuverma/my-node-app:latest          
+            cd /home/ubuntu/node-project
+            git pull origin main
+            docker-compose down
+            docker-compose up -d --build

@@ -6,7 +6,7 @@ function App() {
   const [title, setTitle] = useState("");
 
   const fetchTasks = async () => {
-    const res = await axios.get("http://52.66.196.136:3000/users");
+    const res = await axios.get("http://13.201.136.85:3000/users");
     setTasks(res.data);
   };
 
@@ -16,7 +16,7 @@ function App() {
 
   const addTask = async () => {
     if (!title.trim()) return;
-    await axios.post("http://52.66.196.136:3000/users", { title });
+    await axios.post("http://13.201.136.85:3000/users", { title });
     setTitle("");
     fetchTasks();
   };
